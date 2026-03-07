@@ -1,0 +1,1018 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<html lang="my">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+  <title>S Store </title>
+
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- Header with Logo-Star Store (left), ACC (right), Search (below) -->
+<div class="header-section">
+  <!-- Top row: Logo-Star Store (left) + ACC (right) -->
+  <div class="header-top-row">
+    <div class="brand-container">
+      <div class="store-image">
+        <a href="https://ibb.co/tpRkqsHS" target="_blank" rel="noopener">
+          <img src="https://i.ibb.co/Qv0zPNJZ/Grid-Art-20260302-142000039.png" alt="Star Store Logo">
+        </a>
+      </div>
+      <span class="store-name">S Store</span>
+    </div>
+
+    <!-- Account Circle Button with Profile Image -->
+    <button class="header-account-btn" id="headerAccBtn" type="button" onclick="openAccountScreenFromHeader()">
+      <img id="headerProfileImage" src="" alt="Profile" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover; display: none;">
+      <i id="headerProfileIcon" class="fas fa-user-circle" style="display: inline-block;"></i>
+    </button>
+  </div>
+
+  <!-- Bottom row: Search (full width) -->
+  <div class="search-wrapper">
+    <div class="search-container" id="openSearch" role="button" tabindex="0" aria-label="Open search">
+      <i class="fas fa-search"></i>
+      <input id="headerSearchInput" type="text" placeholder="App ရှာရန်..." readonly>
+    </div>
+  </div>
+</div>
+
+
+<!-- Home Screen -->
+<div class="content-area">
+  <div class="hero-list" id="homeAppList">
+    <!-- App 1 - Star Store -->
+    <div class="hero-card"
+      style="--bg:url('https://i.ibb.co/Q71xYVfb/IMG-20260305-174121-771.jpg');"
+      data-app-name="SCG SHOP"
+      data-app-icon="https://i.ibb.co/99PMH5PC/Grid-Art-20260305-174454868.png"
+      data-app-bg1="https://i.ibb.co/ZzkSjLCT/IMG-20260305-174025.jpg"
+      data-app-bg2="https://i.ibb.co/BH5QP5K8/IMG-20260305-174033.jpg"
+      data-app-bg3="https://i.ibb.co/tpBVP8Fc/IMG-20260305-174043.jpg"
+      data-app-download="https://raw.githubusercontent.com/Starlar1/Star-Store-/6fe36f0a478a2edb0782a0a5f09d6fe2947a3b4b/SCG%20SHOP.apk"
+      data-app-likes="0"
+      data-app-downloads="0"
+      data-app-size="6.6 MB"
+      data-app-developer="Starlar Company"
+      data-app-updated="Mar D5/M3/Y26"
+      data-app-version="555555"
+      data-app-description="MLBB Diamonds များနှင့်တချား Game Item များကို၀ယ်ယူနိုင်ပါသည်."
+      data-app-group="@StarStoreChannel"
+      data-app-group-url="https://t.me/StarlarCompany">
+      <div class="hero-bottom-content">
+        <div class="hero-app-info">
+          <img class="hero-app-icon" src="https://i.ibb.co/99PMH5PC/Grid-Art-20260305-174454868.png" alt="Icon">
+          <span class="hero-app-name">SCG SHOP</span>
+        </div>
+        <button class="hero-download" type="button">View</button>
+      </div>
+    </div>
+    
+    <!-- App 2 - Star Chat -->
+    <div class="hero-card"
+      style="--bg:url('https://i.ibb.co/cq826dp/Grid-Art-20260305-184124022.jpg');"
+      data-app-name="Telegram Premium Mod"
+      data-app-icon="https://i.ibb.co/RkzcrRGc/Grid-Art-20260305-184514652.jpg"
+      data-app-bg1="https://i.ibb.co/cq826dp/Grid-Art-20260305-184124022.jpg"
+      data-app-bg2="https://i.ibb.co/cq826dp/Grid-Art-20260305-184124022.jpg"
+      data-app-bg3="https://i.ibb.co/cq826dp/Grid-Art-20260305-184124022.jpg"
+      data-app-download="https://files.catbox.moe/575e7p.apk"
+      data-app-likes="0"
+      data-app-downloads="0"
+      data-app-size="98.4 MB"
+      data-app-developer="Mg Starlar"
+      data-app-updated="D7/M2/Y26"
+      data-app-version="526141"
+      data-app-description="Telegram Premium Mod Apk"
+      data-app-group="@GEDMODPC"
+      data-app-group-url="https://t.me/Getmodpcs">
+      <div class="hero-bottom-content">
+        <div class="hero-app-info">
+          <img class="hero-app-icon" src="https://i.ibb.co/RkzcrRGc/Grid-Art-20260305-184514652.jpg" alt="Icon">
+          <span class="hero-app-name">Telegram Premium Mod</span>
+        </div>
+        <button class="hero-download" type="button">View</button>
+      </div>
+    </div>
+
+    <!-- App 3 - Star Chat -->
+    <div class="hero-card"
+      style="--bg:url('https://i.ibb.co/3987TvFF/Grid-Art-20260305-184639790.jpg');"
+      data-app-name="InShot Mod"
+      data-app-icon="https://i.ibb.co/zW3TRGRS/Grid-Art-20260305-184551057.jpg"
+      data-app-bg1="https://i.ibb.co/3987TvFF/Grid-Art-20260305-184639790.jpg"
+      data-app-bg2="https://i.ibb.co/3987TvFF/Grid-Art-20260305-184639790.jpg"
+      data-app-bg3="https://i.ibb.co/3987TvFF/Grid-Art-20260305-184639790.jpg"
+      data-app-download="https://files.catbox.moe/9xjfdo.apk"
+      data-app-likes="0"
+      data-app-downloads="0"
+      data-app-size="92.9 MB"
+      data-app-developer="Mg Starlar"
+      data-app-updated="D7/M2/Y26"
+      data-app-version="962530"
+      data-app-description=" InShot Mod Apk"
+      data-app-group="@GEDMODPC"
+      data-app-group-url="https://t.me/Getmodpcs">
+      <div class="hero-bottom-content">
+        <div class="hero-app-info">
+          <img class="hero-app-icon" src="https://i.ibb.co/zW3TRGRS/Grid-Art-20260305-184551057.jpg" alt="Icon">
+          <span class="hero-app-name">InShot Mod</span>
+        </div>
+        <button class="hero-download" type="button">View</button>
+      </div>
+    </div>
+    <!-- App 4 - Star Chat -->
+    <div class="hero-card"
+      style="--bg:url('https://i.ibb.co/1pqpzY2/images-7.jpg');"
+      data-app-name="Granny Smith Mod"
+      data-app-icon="https://i.ibb.co/W4nVsKXc/1.jpg"
+      data-app-bg1="https://i.ibb.co/1pqpzY2/images-7.jpg"
+      data-app-bg2="https://i.ibb.co/FLyZDxdK/images-8.jpg"
+      data-app-bg3="https://i.ibb.co/spk07d2s/images-9.jpg"
+      data-app-download="https://files.catbox.moe/02awrf.apk"
+      data-app-likes="0"
+      data-app-downloads="0"
+      data-app-size="23.4 MB"
+      data-app-developer="Mg Starlr"
+      data-app-updated="D7/M2/Y26"
+      data-app-version="428218"
+      data-app-description="အဘွားကြီးစကိတ်စီးတဲ့ဂိမ်း :) "
+      data-app-group="@Starlar Company"
+      data-app-group-url="https://t.me/StarlarCompany">
+      <div class="hero-bottom-content">
+        <div class="hero-app-info">
+          <img class="hero-app-icon" src="https://i.ibb.co/W4nVsKXc/1.jpg" alt="Icon">
+          <span class="hero-app-name">Granny Smith Mod</span>
+        </div>
+        <button class="hero-download" type="button">View</button>
+      </div>
+    </div>
+
+        <!-- App 5 - Star Chat -->
+    <div class="hero-card"
+      style="--bg:url('https://i.ibb.co/Vcxzb8cb/images-10.jpg');"
+      data-app-name="Fort Conquer Mod"
+      data-app-icon="https://i.ibb.co/LsSmPtv/2.jpg"
+      data-app-bg1="https://i.ibb.co/Vcxzb8cb/images-10.jpg"
+      data-app-bg2="https://i.ibb.co/9FDWYVt/images-11.jpg"
+      data-app-bg3="https://i.ibb.co/VXR6nmR/images-12.jpg"
+      data-app-download="https://files.catbox.moe/e56ej2.apk"
+      data-app-likes="0"
+      data-app-downloads="0"
+      data-app-size="25 MB"
+      data-app-developer="Mg Starlar"
+      data-app-updated="D7/M2/Y26"
+      data-app-version="035194"
+      data-app-description="အကောင်တွေပေါင်းကတဲ့ဂိမ်း"
+      data-app-group="@Starlar Company"
+      data-app-group-url="https://t.me/StarlarCompany">
+      <div class="hero-bottom-content">
+        <div class="hero-app-info">
+          <img class="hero-app-icon" src="https://i.ibb.co/LsSmPtv/2.jpg" alt="Icon">
+          <span class="hero-app-name">Fort Conquer Mod</span>
+        </div>
+        <button class="hero-download" type="button">View</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Bottom Nav - 4 buttons only -->
+<div class="bottom-nav">
+  <div class="nav-buttons">
+    <button class="nav-btn" id="homeBtn" type="button">
+      <i class="fas fa-home"></i>
+      <span>Home</span>
+      <div class="btn-dot"></div>
+    </button>
+    <button class="nav-btn" id="fileBtn" type="button">
+      <i class="fas fa-folder"></i>
+      <span>File</span>
+      <div class="btn-dot"></div>
+    </button>
+    <button class="nav-btn" id="topBtn" type="button">
+      <i class="fas fa-chart-line"></i>
+      <span>Top</span>
+      <div class="btn-dot"></div>
+    </button>
+    <button class="nav-btn" id="faqBtn" type="button">
+      <i class="fas fa-question-circle"></i>
+      <span>FAQ</span>
+      <div class="btn-dot"></div>
+    </button>
+  </div>
+</div>
+
+  <!-- Search Screen -->
+  <div class="search-screen" id="searchScreen" aria-hidden="true">
+    <div class="search-topbar">
+
+
+      <div class="search-input-wrap">
+        <i class="fas fa-search"></i>
+        <input id="searchInput" type="text" placeholder="App  ရှာရန်..." autocomplete="off">
+        <button class="search-clear" id="searchClear" aria-label="Clear" type="button">×</button>
+      </div>
+    </div>
+
+    <div class="search-results" id="searchResults">
+      <div class="search-hint">ရှာချင်တဲ့ App နာမည် ရိုက်ပါ…</div>
+    </div>
+  </div>
+
+<!-- Detail Screen (NEW UI) -->
+<div class="detail-screen" id="detailScreen" aria-hidden="true">
+  
+  <!-- App Info Title -->
+  <div class="detail-title-header">
+    <i class="fas fa-info-circle"></i>
+    <span>App Info</span>
+  </div>
+  
+  <!-- Icon + Name + Download Row -->
+  <div class="detail-header">
+    <img class="detail-header-icon" id="detailIcon" src="" alt="icon">
+    <span class="detail-header-name" id="detailTitle">App Name</span>
+    <a class="detail-header-download" id="detailDownload" href="#">
+      <i class="fas fa-download"></i> Download
+    </a>
+  </div>
+  
+  <!-- App 3 Images Gallery -->
+  <div class="detail-gallery">
+    <div class="gallery-container" id="galleryContainer"></div>
+    <div class="gallery-dots" id="galleryDots"></div>
+  </div>
+  
+  <!-- App Info Section -->
+  <div class="detail-info-section">
+    
+    <!-- Description -->
+    <div class="info-card">
+      <div class="info-card-header">
+        <i class="fas fa-align-left"></i>
+        <span>ဖော်ပြချက်</span>
+      </div>
+      <p class="info-description-text" id="appDescription">Loading...</p>
+    </div>
+    
+    <!-- App Details Grid -->
+    <div class="info-card">
+      <div class="info-card-header">
+        <i class="fas fa-cog"></i>
+        <span>အချက်အလက်များ</span>
+      </div>
+      
+      <div class="info-details-grid">
+        <div class="info-detail-item">
+          <div class="info-detail-label"><i class="fas fa-database"></i> အရွယ်</div>
+          <div class="info-detail-value" id="appSize">-</div>
+        </div>
+        <div class="info-detail-item">
+          <div class="info-detail-label"><i class="fas fa-code-branch"></i> တင်သွင်းသူ</div>
+          <div class="info-detail-value" id="appDeveloper">-</div>
+        </div>
+        <div class="info-detail-item">
+          <div class="info-detail-label"><i class="fas fa-calendar-alt"></i> အပ်ဒိတ်</div>
+          <div class="info-detail-value" id="appUpdated">-</div>
+        </div>
+        <div class="info-detail-item">
+          <div class="info-detail-label"><i class="fas fa-id-card"></i> ID</div>
+          <div class="info-detail-value" id="appVersion">-</div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Telegram Link (No Copy Button) -->
+    <div class="info-card telegram-card">
+      <div class="info-card-header">
+        <i class="fab fa-telegram"></i>
+        <span>Official Channel </span>
+      </div>
+      <div class="telegram-link-container">
+        <i class="fab fa-telegram telegram-icon"></i>
+        <a href="#" id="appGroupLink" class="telegram-link" target="_blank">@channel</a>
+      </div>
+    </div>
+    
+    <!-- Report Button -->
+    <button class="report-btn" id="reportBtn" type="button">
+      <i class="fas fa-flag"></i> Report App
+    </button>
+  </div>
+  
+  <!-- Other Apps -->
+  <div class="other-apps-header">
+    <i class="fas fa-mobile-alt"></i>
+    <span>Other App</span>
+  </div>
+  <div class="other-list" id="otherList"></div>
+</div>
+
+<!-- TOP Screen -->
+<div class="top-screen" id="topScreen" aria-hidden="true">
+  <div class="topbar">
+    <div class="top-title">Top Apps</div>
+  </div>
+
+  <div class="top-list" id="topList">
+    <!-- Top App 1 - SCG SHOP -->
+    <div class="top-card modern"
+         data-app-name="SCG SHOP"
+         data-app-icon="https://i.ibb.co/99PMH5PC/Grid-Art-20260305-174454868.png"
+         data-app-bg="https://i.ibb.co/Q71xYVfb/IMG-20260305-174121-771.jpg"
+         data-app-bg1="https://i.ibb.co/ZzkSjLCT/IMG-20260305-174025.jpg"
+         data-app-bg2="https://i.ibb.co/BH5QP5K8/IMG-20260305-174033.jpg"
+         data-app-bg3="https://i.ibb.co/tpBVP8Fc/IMG-20260305-174043.jpg"
+         data-app-download="https://raw.githubusercontent.com/Starlar1/Star-Store-/6fe36f0a478a2edb0782a0a5f09d6fe2947a3b4b/SCG%20SHOP.apk"
+         data-app-size="6.6 MB"
+         data-app-developer="Starlar Company"
+         data-app-updated="Mar D5/M3/Y26"
+         data-app-version="555555"
+         data-app-description="MLBB Diamonds များနှင့်တချား Game Item များကို၀ယ်ယူနိုင်ပါသည်."
+         data-app-group="@StarStoreChannel"
+         data-app-group-url="https://t.me/StarlarCompany">
+      <span class="top-rank-number">1.</span>
+      <img class="top-icon-modern" src="https://i.ibb.co/99PMH5PC/Grid-Art-20260305-174454868.png" alt="SCG SHOP">
+      <span class="top-name-modern">SCG SHOP</span>
+      <button class="top-download-modern" type="button">
+        <i class="fas fa-download"></i> View
+      </button>
+    </div>
+
+    <!-- Top App 2 - Telegram Premium Mod -->
+    <div class="top-card modern"
+         data-app-name="Telegram Premium Mod"
+         data-app-icon="https://i.ibb.co/RkzcrRGc/Grid-Art-20260305-184514652.jpg"
+         data-app-bg="https://i.ibb.co/cq826dp/Grid-Art-20260305-184124022.jpg"
+         data-app-bg1="https://i.ibb.co/cq826dp/Grid-Art-20260305-184124022.jpg"
+         data-app-bg2="https://i.ibb.co/cq826dp/Grid-Art-20260305-184124022.jpg"
+         data-app-bg3="https://i.ibb.co/cq826dp/Grid-Art-20260305-184124022.jpg"
+         data-app-download="https://files.catbox.moe/575e7p.apk"
+         data-app-size="98.4 MB"
+         data-app-developer="Mg Starlar"
+         data-app-updated="D7/M2/Y26"
+         data-app-version="526141"
+         data-app-description="Telegram Premium Mod Apk"
+         data-app-group="@GEDMODPC"
+         data-app-group-url="https://t.me/Getmodpcs">
+      <span class="top-rank-number">2.</span>
+      <img class="top-icon-modern" src="https://i.ibb.co/RkzcrRGc/Grid-Art-20260305-184514652.jpg" alt="Telegram Premium Mod">
+      <span class="top-name-modern">Telegram Premium Mod</span>
+      <button class="top-download-modern" type="button">
+        <i class="fas fa-download"></i> View
+      </button>
+    </div>
+
+    <!-- Top App 3 - InShot Mod -->
+    <div class="top-card modern"
+         data-app-name="InShot Mod"
+         data-app-icon="https://i.ibb.co/zW3TRGRS/Grid-Art-20260305-184551057.jpg"
+         data-app-bg="https://i.ibb.co/3987TvFF/Grid-Art-20260305-184639790.jpg"
+         data-app-bg1="https://i.ibb.co/3987TvFF/Grid-Art-20260305-184639790.jpg"
+         data-app-bg2="https://i.ibb.co/3987TvFF/Grid-Art-20260305-184639790.jpg"
+         data-app-bg3="https://i.ibb.co/3987TvFF/Grid-Art-20260305-184639790.jpg"
+         data-app-download="https://files.catbox.moe/9xjfdo.apk"
+         data-app-size="92.9 MB"
+         data-app-developer="Mg Starlar"
+         data-app-updated="D7/M2/Y26"
+         data-app-version="962530"
+         data-app-description="InShot Mod Apk"
+         data-app-group="@GEDMODPC"
+         data-app-group-url="https://t.me/Getmodpcs">
+      <span class="top-rank-number">3.</span>
+      <img class="top-icon-modern" src="https://i.ibb.co/zW3TRGRS/Grid-Art-20260305-184551057.jpg" alt="InShot Mod">
+      <span class="top-name-modern">InShot Mod</span>
+      <button class="top-download-modern" type="button">
+        <i class="fas fa-download"></i> View
+      </button>
+    </div>
+
+    <!-- Top App 4 - Granny Smith Mod -->
+    <div class="top-card modern"
+         data-app-name="Granny Smith Mod"
+         data-app-icon="https://i.ibb.co/W4nVsKXc/1.jpg"
+         data-app-bg="https://i.ibb.co/1pqpzY2/images-7.jpg"
+         data-app-bg1="https://i.ibb.co/1pqpzY2/images-7.jpg"
+         data-app-bg2="https://i.ibb.co/FLyZDxdK/images-8.jpg"
+         data-app-bg3="https://i.ibb.co/spk07d2s/images-9.jpg"
+         data-app-download="https://files.catbox.moe/02awrf.apk"
+         data-app-size="23.4 MB"
+         data-app-developer="Mg Starlar"
+         data-app-updated="D7/M2/Y26"
+         data-app-version="428218"
+         data-app-description="အဘွားကြီးစကိတ်စီးတဲ့ဂိမ်း :)"
+         data-app-group="@Starlar Company"
+         data-app-group-url="https://t.me/StarlarCompany">
+      <span class="top-rank-number">4.</span>
+      <img class="top-icon-modern" src="https://i.ibb.co/W4nVsKXc/1.jpg" alt="Granny Smith Mod">
+      <span class="top-name-modern">Granny Smith Mod</span>
+      <button class="top-download-modern" type="button">
+        <i class="fas fa-download"></i> View
+      </button>
+    </div>
+
+    <!-- Top App 5 - Fort Conquer Mod -->
+    <div class="top-card modern"
+         data-app-name="Fort Conquer Mod"
+         data-app-icon="https://i.ibb.co/LsSmPtv/2.jpg"
+         data-app-bg="https://i.ibb.co/Vcxzb8cb/images-10.jpg"
+         data-app-bg1="https://i.ibb.co/Vcxzb8cb/images-10.jpg"
+         data-app-bg2="https://i.ibb.co/9FDWYVt/images-11.jpg"
+         data-app-bg3="https://i.ibb.co/VXR6nmR/images-12.jpg"
+         data-app-download="https://files.catbox.moe/e56ej2.apk"
+         data-app-size="25 MB"
+         data-app-developer="Mg Starlar"
+         data-app-updated="D7/M2/Y26"
+         data-app-version="035194"
+         data-app-description="အကောင်တွေပေါင်းကတဲ့ဂိမ်း"
+         data-app-group="@Starlar Company"
+         data-app-group-url="https://t.me/StarlarCompany">
+      <span class="top-rank-number">5.</span>
+      <img class="top-icon-modern" src="https://i.ibb.co/LsSmPtv/2.jpg" alt="Fort Conquer Mod">
+      <span class="top-name-modern">Fort Conquer Mod</span>
+      <button class="top-download-modern" type="button">
+        <i class="fas fa-download"></i> View
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Account Screen (ACC Modal) - Simple UI with S Point Image Only (Server Status ဖယ်ထား) -->
+<div class="acc-screen" id="accScreen" aria-hidden="true">
+  <div class="acc-container">
+    <!-- Simple Header -->
+    <div class="acc-header">
+      <div class="acc-title">Profile</div>
+    </div>
+
+    <!-- S Point Display - သီးသန့်အကွက်လေး -->
+    <div class="s-point-box">
+      <img src="https://i.ibb.co/B55SJzBc/Grid-Art-20260303-131631280.png" alt="S Point" class="s-point-icon">
+      <span class="s-point-value" id="accSPoint">0</span>
+    </div>
+
+    <!-- Profile Section -->
+    <div class="acc-profile-section" id="accProfileSection">
+      <!-- Not Logged In State - Simple Welcome -->
+      <div class="acc-not-logged" id="accNotLogged">
+        <div class="simple-welcome">
+          <i class="fas fa-user-circle welcome-icon"></i>
+          <h2>Welcome Back!</h2>
+          <p>အကောင့်ဖွင့်ပြီး စတင်အသုံးပြုလိုက်ပါ</p>
+          
+          <!-- Server Status ဖယ်ရှားလိုက်ပြီ -->
+          
+          <button class="acc-open-btn-simple" id="accOpenBtn" type="button">
+            <i class="fas fa-paper-plane"></i> Account Open
+          </button>
+        </div>
+      </div>
+
+      <!-- Logged In State - Simple Profile -->
+      <div class="acc-logged" id="accLogged" style="display: none;">
+        <!-- Profile Image -->
+        <div class="profile-image-container">
+          <div class="profile-image-wrapper" id="accProfileCircle">
+            <img id="accProfileImage" src="" alt="Profile">
+            <div class="profile-image-overlay">
+              <i class="fas fa-camera"></i>
+            </div>
+            <input type="file" id="accImageUpload" accept="image/*" style="display: none;">
+          </div>
+        </div>
+
+        <!-- Profile Info -->
+        <div class="profile-info-simple">
+          <div class="profile-name-row">
+            <h3 id="accDisplayName">နာမည်ထည့်ပါ</h3>
+            <button class="edit-name-btn" id="accEditBtn">
+              <i class="fas fa-pen"></i>
+            </button>
+          </div>
+          
+          <div class="profile-id-simple">
+            <div class="id-row">
+              <span class="id-label">User ID:</span>
+              <span class="id-value" id="accUserId">-</span>
+            </div>
+            <div class="id-row">
+              <span class="id-label">Invite ID:</span>
+              <span class="id-value" id="accInviteId">-</span>
+            </div>
+          </div>
+          
+          <div class="server-badge-simple">
+            <i class="fas fa-server"></i>
+            <span>Server <span id="accServerNumber">1</span></span>
+          </div>
+        </div>
+
+        <!-- Edit Profile Simple -->
+        <div class="edit-profile-simple" id="accEditForm" style="display: none;">
+          <div class="edit-box">
+            <h4>Profile Edit </h4>
+            <div class="edit-avatar-simple" id="editAvatarSimple">
+              <img id="editAvatarPreview" src="" alt="Preview">
+              <button class="change-avatar-simple" id="changeAvatarBtn">
+                <i class="fas fa-camera"></i> ပုံပြောင်း
+              </button>
+              <input type="file" id="editImageUpload" accept="image/*" style="display: none;">
+            </div>
+            <input type="text" id="accEditName" placeholder="နာမည်အသစ်" class="edit-input-simple">
+            <div class="edit-actions-simple">
+              <button class="save-btn-simple" id="accSaveBtn">သိမ်းမည်</button>
+              <button class="cancel-btn-simple" id="accCancelBtn">မလုပ်တော့</button>
+            </div>
+          </div>
+        </div>
+        
+   <!-- ===== S POINT BUTTONS - ROW STYLE (Png with 2-line English text) ===== -->
+<div class="s-point-actions-rows">
+  <!-- First Row - 2 buttons -->
+  <div class="s-point-row-buttons">
+    <!-- Buy S Points - Purple -->
+    <button class="s-point-row-btn purple-row" id="buySPointBtn">
+      <div class="s-point-row-content">
+        <div class="s-point-row-icon">
+          <img src="https://i.ibb.co/B55SJzBc/Grid-Art-20260303-131631280.png" alt="S Point" class="s-point-png">
+        </div>
+        <span class="s-point-row-text white-text two-lines">Buy S Points</span>
+      </div>
+      <div class="s-point-row-glow"></div>
+      <div class="s-point-row-glow-second"></div>
+      <div class="s-point-row-glow-third"></div>
+    </button>
+
+    <!-- Exchange with S Points - Yellow -->
+    <button class="s-point-row-btn yellow-row" id="exchangeSPointBtn">
+      <div class="s-point-row-content">
+        <div class="s-point-row-icon">
+          <img src="https://i.ibb.co/B55SJzBc/Grid-Art-20260303-131631280.png" alt="S Point" class="s-point-png">
+        </div>
+        <span class="s-point-row-text white-text two-lines">Exchange with S Points</span>
+      </div>
+      <div class="s-point-row-glow"></div>
+      <div class="s-point-row-glow-second"></div>
+      <div class="s-point-row-glow-third"></div>
+    </button>
+  </div>
+
+  <!-- Second Row - 2 buttons (Gift Code + Earn S Points) -->
+  <div class="s-point-row-buttons">
+    <!-- Gift Code - Sky Blue (NEW) -->
+    <button class="s-point-row-btn skyblue-row" id="giftCodeBtn">
+      <div class="s-point-row-content">
+        <div class="s-point-row-icon">
+          <img src="https://i.ibb.co/B55SJzBc/Grid-Art-20260303-131631280.png" alt="S Point" class="s-point-png">
+        </div>
+        <span class="s-point-row-text white-text two-lines">Gift Code</span>
+      </div>
+      <div class="s-point-row-glow"></div>
+      <div class="s-point-row-glow-second"></div>
+      <div class="s-point-row-glow-third"></div>
+    </button>
+
+    <!-- Earn S Points - Blue -->
+    <button class="s-point-row-btn blue-row" id="earnSPointBtn">
+      <div class="s-point-row-content">
+        <div class="s-point-row-icon">
+          <img src="https://i.ibb.co/B55SJzBc/Grid-Art-20260303-131631280.png" alt="S Point" class="s-point-png">
+        </div>
+        <span class="s-point-row-text white-text two-lines">Earn S Points</span>
+      </div>
+      <div class="s-point-row-glow"></div>
+      <div class="s-point-row-glow-second"></div>
+      <div class="s-point-row-glow-third"></div>
+    </button>
+  </div>
+</div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Name/ID Input Modal (Simple) - ဒီအပိုင်းကို ထည့်ရန်လိုအပ်ပါတယ် -->
+<div class="simple-modal" id="nameIdModal" style="display: none;">
+  <div class="simple-modal-content">
+    <div class="simple-modal-header">
+      <i class="fas fa-user-plus modal-header-icon"></i>
+      <h3>Account </h3>
+    </div>
+    
+    <div class="simple-modal-body">
+      <!-- Image Upload -->
+      <div class="simple-avatar-selector" id="simpleAvatarSelector">
+        <div class="simple-avatar-circle" id="modalProfileCircle">
+          <img id="modalProfileImage" src="" alt="Profile">
+          <div class="simple-avatar-overlay">
+            <i class="fas fa-camera"></i>
+          </div>
+        </div>
+        <p class="simple-avatar-hint">ထည့်ရန် နှိပ်ပါ</p>
+        <input type="file" id="modalImageUpload" accept="image/*" style="display: none;">
+      </div>
+      
+      <!-- Name Input -->
+      <div class="simple-input-group">
+        <i class="fas fa-user input-icon-simple"></i>
+        <input type="text" id="modalName" class="simple-input" placeholder="သင့်နာမည်">
+      </div>
+      
+      <!-- Loading -->
+      <div class="simple-loading" id="modalLoading" style="display: none;">
+        <div class="simple-spinner"></div>
+        <p>Loading...</p>
+      </div>
+    </div>
+    
+    <div class="simple-modal-footer">
+      <button class="simple-confirm-btn" id="modalConfirmBtn">
+        <span>Account Open</span>
+        <i class="fas fa-arrow-right"></i>
+      </button>
+      <button class="simple-cancel-btn" id="modalCancelBtn">မလုပ်တော့</button>
+    </div>
+  </div>
+</div>
+
+<!-- FILE SCREEN - အပြည့်အစုံ မြင်ရမည် (ဖိုင် ၅ ခု) -->
+<div class="file-screen" id="fileScreen" aria-hidden="true">
+  
+  <!-- FILE SEARCH BAR - အပေါ်ဆုံးမှာထား -->
+  <div class="file-search-wrapper" style="padding: 16px 16px 8px 16px;">
+    <div class="file-search-container" style="display: flex; align-items: center; background: #f2f4f8; border-radius: 40px; padding: 12px 18px; border: 1px solid #e0e7f0;">
+      <i class="fas fa-search" style="color: #1d4ed3; margin-right: 12px; font-size: 18px;"></i>
+      <input id="fileSearchInput" type="text" placeholder="ဖိုင် ရှာရန်..." autocomplete="off" style="flex: 1; border: none; background: transparent; outline: none; font-size: 0.95rem; color: #1a2634;">
+      <button class="file-search-clear" id="fileSearchClear" aria-label="Clear" type="button" style="border: none; background: transparent; font-size: 24px; line-height: 1; cursor: pointer; color: #6b7a90; display: none; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 50%;">×</button>
+    </div>
+  </div>
+
+  <!-- FILE HEADER - "ဖိုင်များ" ခေါင်းစည်းကို အောက်မှာထား -->
+  <div class="file-header" style="padding: 0 16px 16px 16px;">
+    <div class="file-title" style="font-weight: 700; font-size: 1.3rem; color: #0f172a;">ဖိုင်များ</div>
+  </div>
+
+  <!-- FILE GRID (မူလဖိုင် ၅ ခု) -->
+  <div class="file-grid" id="fileGrid">
+    <!-- File 1 - APK ဖိုင်များ -->
+    <div class="file-card" 
+         data-file-id="file1"
+         data-file-name="မကြာမှီလာမည်"
+         data-file-icon="https://i.ibb.co/XrC36shc/Grid-Art-20260307-180327218.png"
+         data-file-cover="https://i.ibb.co/XrC36shc/Grid-Art-20260307-180327218.png"
+         data-file-size="0 MB"
+         data-file-date="D0M0Y00"
+         data-file-download="#"
+         data-file-description="No Description "
+         data-file-id-number="000000"
+         data-file-developer="No"
+         data-file-group="No Channel"
+         data-file-group-url="No Link">
+      <div class="file-cover" style="background-image: url('https://i.ibb.co/XrC36shc/Grid-Art-20260307-180327218.png');">
+        <div class="file-overlay"></div>
+      </div>
+      <div class="file-content">
+        <img class="file-icon" src="https://i.ibb.co/XrC36shc/Grid-Art-20260307-180327218.png" alt="File">
+        <div class="file-info">
+          <div class="file-name">မကြာမှီလာမည်</div>
+          <button class="file-download" type="button"><i class="fas fa-download"></i> ရယူရန်</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- File 2 - ZIP ဖိုင်များ -->
+    <div class="file-card" 
+         data-file-id="file1"
+         data-file-name="မကြာမှီလာမည်"
+         data-file-icon="https://i.ibb.co/XrC36shc/Grid-Art-20260307-180327218.png"
+         data-file-cover="https://i.ibb.co/XrC36shc/Grid-Art-20260307-180327218.png"
+         data-file-size="0 MB"
+         data-file-date="D0M0Y00"
+         data-file-download="#"
+         data-file-description="No Description "
+         data-file-id-number="000000"
+         data-file-developer="No"
+         data-file-group="No Channel"
+         data-file-group-url="No Link">
+      <div class="file-cover" style="background-image: url('https://i.ibb.co/XrC36shc/Grid-Art-20260307-180327218.png');">
+        <div class="file-overlay"></div>
+      </div>
+      <div class="file-content">
+        <img class="file-icon" src="https://i.ibb.co/XrC36shc/Grid-Art-20260307-180327218.png" alt="File">
+        <div class="file-info">
+          <div class="file-name">မကြာမှီလာမည်</div>
+          <button class="file-download" type="button"><i class="fas fa-download"></i> ရယူရန်</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- File 3 - PDF ဖိုင်များ -->
+    <div class="file-card" 
+         data-file-id="file1"
+         data-file-name="မကြာမှီလာမည်"
+         data-file-icon="https://i.ibb.co/XrC36shc/Grid-Art-20260307-180327218.png"
+         data-file-cover="https://i.ibb.co/XrC36shc/Grid-Art-20260307-180327218.png"
+         data-file-size="0 MB"
+         data-file-date="D0M0Y00"
+         data-file-download="#"
+         data-file-description="No Description "
+         data-file-id-number="000000"
+         data-file-developer="No"
+         data-file-group="No Channel"
+         data-file-group-url="No Link">
+      <div class="file-cover" style="background-image: url('https://i.ibb.co/XrC36shc/Grid-Art-20260307-180327218.png');">
+        <div class="file-overlay"></div>
+      </div>
+      <div class="file-content">
+        <img class="file-icon" src="https://i.ibb.co/XrC36shc/Grid-Art-20260307-180327218.png" alt="File">
+        <div class="file-info">
+          <div class="file-name">မကြာမှီလာမည်</div>
+          <button class="file-download" type="button"><i class="fas fa-download"></i> ရယူရန်</button>
+        </div>
+      </div>
+    </div>
+<!-- File 4 - MP3 ဖိုင်များ -->
+    <div class="file-card" 
+         data-file-id="file1"
+         data-file-name="မကြာမှီလာမည်"
+         data-file-icon="https://i.ibb.co/XrC36shc/Grid-Art-20260307-180327218.png"
+         data-file-cover="https://i.ibb.co/XrC36shc/Grid-Art-20260307-180327218.png"
+         data-file-size="0 MB"
+         data-file-date="D0M0Y00"
+         data-file-download="#"
+         data-file-description="No Description "
+         data-file-id-number="000000"
+         data-file-developer="No"
+         data-file-group="No Channel"
+         data-file-group-url="No Link">
+      <div class="file-cover" style="background-image: url('https://i.ibb.co/XrC36shc/Grid-Art-20260307-180327218.png');">
+        <div class="file-overlay"></div>
+      </div>
+      <div class="file-content">
+        <img class="file-icon" src="https://i.ibb.co/XrC36shc/Grid-Art-20260307-180327218.png" alt="File">
+        <div class="file-info">
+          <div class="file-name">မကြာမှီလာမည်</div>
+          <button class="file-download" type="button"><i class="fas fa-download"></i> ရယူရန်</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- File 5 - MP4 ဖိုင်များ -->
+    <div class="file-card" 
+         data-file-id="file1"
+         data-file-name="မကြာမှီလာမည်"
+         data-file-icon="https://i.ibb.co/XrC36shc/Grid-Art-20260307-180327218.png"
+         data-file-cover="https://i.ibb.co/XrC36shc/Grid-Art-20260307-180327218.png"
+         data-file-size="0 MB"
+         data-file-date="D0M0Y00"
+         data-file-download="#"
+         data-file-description="No Description "
+         data-file-id-number="000000"
+         data-file-developer="No"
+         data-file-group="No Channel"
+         data-file-group-url="No Link">
+      <div class="file-cover" style="background-image: url('https://i.ibb.co/XrC36shc/Grid-Art-20260307-180327218.png');">
+        <div class="file-overlay"></div>
+      </div>
+      <div class="file-content">
+        <img class="file-icon" src="https://i.ibb.co/XrC36shc/Grid-Art-20260307-180327218.png" alt="File">
+        <div class="file-info">
+          <div class="file-name">မကြာမှီလာမည်</div>
+          <button class="file-download" type="button"><i class="fas fa-download"></i> ရယူရန်</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- FILE SEARCH RESULT (အသစ် - ရှာမှပေါ်မယ်) -->
+  <div class="file-search-result" id="fileSearchResult" style="display: none; padding: 0 16px 20px 16px;">
+    <div class="file-grid" id="searchFileGrid" style="grid-template-columns: repeat(2, 1fr); gap: 16px;"></div>
+    <div id="fileNoResult" style="text-align: center; padding: 50px 20px; color: #94a3b8; display: none; background: #f8fafc; border-radius: 24px; margin-top: 20px; border: 1px dashed #e2e8f0;">
+      <i class="fas fa-search" style="font-size: 48px; color: #cbd5e1; margin-bottom: 16px; display: block;"></i>
+      <p style="font-size: 1rem; color: #64748b;">ဖိုင်မတွေ့ပါ</p>
+    </div>
+  </div>
+</div>
+
+<!-- FILE DETAIL SCREEN (နှိပ်ရင်ပေါ်မယ့် Screen) - Download ခလုတ် ၁ ခုတည်း -->
+<div class="file-detail-screen" id="fileDetailScreen" style="display: none;">
+  <div class="file-detail-header">
+    <div class="file-detail-title" id="fileDetailTitle">ဖိုင်အသေးစိတ်</div>
+  </div>
+  
+  <div class="file-detail-cover" id="fileDetailCover"></div>
+  
+  <div class="file-detail-body">
+    <!-- Icon နဲ့ Download ခလုတ် (ဘေးချင်းကပ်) -->
+    <div class="file-detail-icon-row">
+      <img class="file-detail-icon" id="fileDetailIcon" src="" alt="icon">
+      <div class="file-detail-name" id="fileDetailName">ဖိုင်အမည်</div>
+      <button class="file-detail-download-btn" id="fileDetailDownloadBtn" type="button">
+        <i class="fas fa-download"></i> ရယူရန်
+      </button>
+    </div>
+    
+    <!-- အချက်အလက် Info အကုန် - ဖော်ပြချက်ကို အပေါ်ဆုံးမှာထား -->
+    <div class="file-detail-info-card">
+      <!-- ဖော်ပြချက် (အပေါ်ဆုံး) -->
+      <div class="file-detail-section">
+        <h4><i class="fas fa-align-left"></i> ဖော်ပြချက်</h4>
+        <p class="file-detail-description" id="fileDetailDescription">-</p>
+      </div>
+      
+      <div class="file-detail-section">
+        <h4><i class="fas fa-info-circle"></i> အချက်အလက်များ</h4>
+        <div class="file-detail-grid">
+          <div class="file-detail-item">
+            <span class="file-detail-label"><i class="fas fa-database"></i> အရွယ်အစား:</span>
+            <span class="file-detail-value" id="fileDetailSize">-</span>
+          </div>
+          <div class="file-detail-item">
+            <span class="file-detail-label"><i class="fas fa-calendar"></i> ရက်စွဲ:</span>
+            <span class="file-detail-value" id="fileDetailDate">-</span>
+          </div>
+          <div class="file-detail-item">
+            <span class="file-detail-label"><i class="fas fa-id-card"></i> ID:</span>
+            <span class="file-detail-value" id="fileDetailId">-</span>
+          </div>
+          <div class="file-detail-item">
+            <span class="file-detail-label"><i class="fas fa-user"></i> တင်သွင်းသူ:</span>
+            <span class="file-detail-value" id="fileDetailDeveloper">-</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Group/Channel Link -->
+      <div class="file-detail-section">
+        <h4><i class="fab fa-telegram"></i> Group/Channel</h4>
+        <div class="file-detail-link">
+          <i class="fab fa-telegram"></i>
+          <a href="#" id="fileDetailGroupLink" class="file-detail-group-link" target="_blank">@StarStoreChannel</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Report Button - အပေါ်နည်းနည်းတင်ထား (margin-top လျှော့) -->
+    <button class="file-detail-report-btn" id="fileDetailReportBtn" type="button">
+      <i class="fas fa-flag"></i> Report this file
+    </button>
+  </div>
+</div>
+
+<!-- Report Modal Screen -->
+<div class="report-modal" id="reportModal" style="display: none;">
+  <div class="report-modal-content">
+    <div class="report-modal-header">
+      <h3><i class="fas fa-flag"></i> အစီရင်ခံရန်</h3>
+      <button class="report-close-btn" id="reportCloseBtn"><i class="fas fa-times"></i></button>
+    </div>
+    
+    <div class="report-modal-body">
+      <!-- App/File Info -->
+      <div class="report-item-info" id="reportItemInfo">
+        <img id="reportItemIcon" src="" alt="icon" class="report-item-icon">
+        <span id="reportItemName" class="report-item-name"></span>
+      </div>
+      
+      <!-- Report Type (Hidden) -->
+      <input type="hidden" id="reportType" value="app">
+      <input type="hidden" id="reportItemId" value="">
+      
+      <!-- Message Input -->
+      <div class="report-input-group">
+        <label for="reportMessage">
+          <i class="fas fa-pen"></i> တိုင်ကြားချင်သောအကြောင်းအရာ
+        </label>
+        <textarea id="reportMessage" class="report-textarea" placeholder="အသေးစိတ်ရေးသားပါ..." rows="5"></textarea>
+      </div>
+    </div>
+    
+    <div class="report-modal-footer">
+      <button class="report-cancel-btn" id="reportCancelBtn">မလုပ်တော့</button>
+      <button class="report-submit-btn" id="reportSubmitBtn">
+        <i class="fab fa-telegram"></i> ပေးပို့မည်
+      </button>
+    </div>
+    
+    <!-- Loading -->
+    <div class="report-loading" id="reportLoading" style="display: none;">
+      <div class="report-spinner"></div>
+      <p>ပေးပို့နေသည်...</p>
+    </div>
+  </div>
+</div>
+
+<!-- FAQ Screen -->
+<div class="faq-screen" id="faqScreen" aria-hidden="true">
+  <div class="faq-header">
+    <button class="faq-back-btn" id="faqBackBtn">
+      <i class="fas fa-arrow-left"></i>
+    </button>
+    <div class="faq-title">အမေးများသောမေးခွန်းများ</div>
+  </div>
+
+  <div class="faq-container">
+    <!-- FAQ Item 1 -->
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>၁. သင့် App သို့မဟုတ် File ကို အခမဲ့တင်သွင်းမည်ဆိုပါက</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="faq-answer">
+        <p>သင့် App သို့မဟုတ် File ကို အောက်ပါလင့်ခ်မှတစ်ဆင့် တင်သွင်းနိုင်ပါသည်။</p>
+        <a href="https://forms.gle/3Moybyr5DS5t17Ka6" target="_blank" class="faq-link">
+          <i class="fas fa-link"></i> https://forms.gle/3Moybyr5DS5t17Ka6
+        </a>
+      </div>
+    </div>
+
+    <!-- FAQ Item 2 -->
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>၂. S Points များကိုရယူနည်း</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="faq-answer">
+        <p>S Points များကို အောက်ပါနည်းလမ်းများဖြင့် ရယူနိုင်ပါသည်။</p>
+        <ul>
+          <li><i class="fas fa-shopping-cart"></i> ၀ယ်ယူခြင်း</li>
+          <li><i class="fas fa-tasks"></i> Tasks များ ပြီးမြောက်ခြင်း</li>
+          <li><i class="fas fa-user-friends"></i> သူငယ်ချင်းများကို Invite လုပ်ခြင်း</li>
+          <li><i class="fas fa-code"></i> ကိုယ်ပိုင် App/File များတင်ခြင်း</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- FAQ Item 3 -->
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>၃. S Points များကိုဘယ်လိုသုံးရမလဲ</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="faq-answer">
+        <p>S Points များကို အောက်ပါတို့အတွက် အသုံးပြုနိုင်ပါသည်။</p>
+        <ul>
+          <li><i class="fas fa-download"></i> အခကြေးငွေပေးရသော App/File များ ဒေါင်းလုဒ်လုပ်ခြင်း</li>
+          <li><i class="fas fa-exchange-alt"></i> MLBB Diamonds များနှင့် လဲလှယ်ခြင်း</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- FAQ Item 4 - NEW: Website/App Training (ရိုးရှင်းသော) -->
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>၄. Website/App ထုတ်နည်းသင်တန်း</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="faq-answer">
+        <p>Website/App ထုတ်နည်းသို့မဟုတ် အပ်ချင်ပါက အောက်ပါ Telegram လိပ်စာမှတစ်ဆင့် ဆက်သွယ်နိုင်ပါသည်။</p>
+        <a href="https://t.me/Starlar1" target="_blank" class="faq-link">
+          <i class="fab fa-telegram"></i> @Starlar1
+        </a>
+      </div>
+    </div>
+
+    <!-- FAQ Item 5 -->
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>၅. ကြေညာထည့်ချင်သူများအတွက်</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="faq-answer">
+        <p>ကြော်ငြာထည့်သွင်းလိုပါက Telegram မှတစ်ဆင့် ဆက်သွယ်နိုင်ပါသည်။</p>
+        <a href="https://t.me/Starlar1" target="_blank" class="faq-link">
+          <i class="fab fa-telegram"></i> @Starlar1
+        </a>
+      </div>
+    </div>
+
+    <!-- FAQ Item 6 -->
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>၆. ထုတ်လုပ်သည့် Official Channel</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="faq-answer">
+        <p>တရားဝင် Channel ကို အောက်ပါလင့်ခ်မှတစ်ဆင့် ဝင်ရောက်နိုင်ပါသည်။</p>
+        <a href="https://t.me/StarlarCompany" target="_blank" class="faq-link">
+          <i class="fab fa-telegram"></i> https://t.me/StarlarCompany
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- JS -->
+<script src="script.js" defer></script>
+</body>
+</html>
+</script>

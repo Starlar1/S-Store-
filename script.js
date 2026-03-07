@@ -1,4 +1,4 @@
-<meta name='viewport' content='width=device-width, initial-scale=1'/><script>(function () {
+(function () {
   // ---------- Supabase Setup ----------
   const supabaseClients = [
     supabase.createClient(

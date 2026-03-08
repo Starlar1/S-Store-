@@ -294,9 +294,9 @@
   <div class="detail-header">
     <img class="detail-header-icon" id="detailIcon" src="" alt="icon">
     <span class="detail-header-name" id="detailTitle">App Name</span>
-    <a class="detail-header-download" id="detailDownload" href="#">
-      <i class="fas fa-download"></i> Download
-    </a>
+<a class="detail-header-download" id="detailDownload" href="#" target="_blank">
+  <i class="fas fa-download"></i> Download
+</a>
   </div>
   
   <!-- App 3 Images Gallery -->
@@ -6781,6 +6781,73 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 });
+
+// ===== DOWNLOAD FIXES =====
+// 1. App Detail Download (target="_blank")
+const detailDownload = document.getElementById('detailDownload');
+if (detailDownload) {
+  detailDownload.setAttribute('target', '_blank');
+}
+
+// 2. File Detail Download
+document.addEventListener('click', function(e) {
+  const downloadBtn = e.target.closest('#fileDetailDownloadBtn');
+  if (!downloadBtn) return;
+  
+  e.preventDefault();
+  e.stopPropagation();
+  
+  const detailScreen = document.getElementById('fileDetailScreen');
+  const fileId = detailScreen?.dataset.currentFileId;
+  if (!fileId) return;
+  
+  const fileCard = document.querySelector(`.file-card[data-file-id="${fileId}"]`);
+  const downloadUrl = fileCard?.dataset.fileDownload;
+  
+  if (downloadUrl && downloadUrl !== '#') {
+    window.open(downloadUrl, '_blank');
+  } else {
+    alert('Download link မရှိပါ။');
+  }
+});
+
+// Save file id when opening file detail
+const originalOpenFileDetail = window.openFileDetail;
+if (originalOpenFileDetail) {
+  window.openFileDetail = function(fileCard) {
+    const card = typeof fileCard === 'string' 
+      ? document.querySelector(`.file-card[data-file-id="${fileCard}"]`)
+      : fileCard.closest('.file-card');
+    
+    if (card?.dataset.fileId) {
+      const detailScreen = document.getElementById('fileDetailScreen');
+      if (detailScreen) {
+        detailScreen.dataset.currentFileId = card.dataset.fileId;
+      }
+    }
+    
+    originalOpenFileDetail(fileCard);
+  };
+}
+
+// 3. File Card Download
+document.addEventListener('click', function(e) {
+  const downloadBtn = e.target.closest('.file-download');
+  if (!downloadBtn) return;
+  
+  e.preventDefault();
+  e.stopPropagation();
+  
+  const card = downloadBtn.closest('.file-card');
+  const downloadUrl = card?.dataset.fileDownload;
+  
+  if (downloadUrl && downloadUrl !== '#') {
+    window.open(downloadUrl, '_blank');
+  } else {
+    alert('Download link မရှိပါ။');
+  }
+});
+
 // Expose functions globally
 window.openFileScreen = openFileScreen;
 window.openFileDetail = openFileDetail;

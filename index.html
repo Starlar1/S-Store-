@@ -6782,12 +6782,50 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 
-// ===== DOWNLOAD FIXES =====
-// 1. App Detail Download (target="_blank")
-const detailDownload = document.getElementById('detailDownload');
-if (detailDownload) {
-  detailDownload.setAttribute('target', '_blank');
+// ===== BROWSER SELECTOR POPUP =====
+// ဖုန်းအောက်က browser ရွေးခိုင်းတဲ့ popup ပေါ်အောင်
+
+function openWithBrowserSelector(url) {
+  if (!url || url === '#') {
+    alert('Download link မရှိပါ။');
+    return;
+  }
+  
+  // Android ဖုန်းစစ်ဆေး
+  const isAndroid = /Android/i.test(navigator.userAgent);
+  
+  if (isAndroid) {
+    // Intent URL (browser selector ပေါ်မယ်)
+    const intentUrl = `intent://${url.replace(/^https?:\/\//, '')}#Intent;scheme=https;package=com.android.chrome;S.browser_fallback_url=${encodeURIComponent(url)};end`;
+    
+    // iframe နဲ့ဖွင့်မယ်
+    const iframe = document.createElement('iframe');
+    iframe.style.display = 'none';
+    iframe.src = intentUrl;
+    document.body.appendChild(iframe);
+    
+    setTimeout(() => {
+      if (iframe.parentNode) {
+        document.body.removeChild(iframe);
+      }
+    }, 1000);
+  } else {
+    // အခြား OS ဆိုရင် target="_blank" နဲ့ဖွင့်
+    window.open(url, '_blank');
+  }
 }
+
+// 1. App Detail Download
+document.addEventListener('click', function(e) {
+  const downloadBtn = e.target.closest('#detailDownload');
+  if (!downloadBtn) return;
+  
+  e.preventDefault();
+  e.stopPropagation();
+  
+  const downloadUrl = document.getElementById('detailDownload')?.href;
+  openWithBrowserSelector(downloadUrl);
+});
 
 // 2. File Detail Download
 document.addEventListener('click', function(e) {
@@ -6804,14 +6842,24 @@ document.addEventListener('click', function(e) {
   const fileCard = document.querySelector(`.file-card[data-file-id="${fileId}"]`);
   const downloadUrl = fileCard?.dataset.fileDownload;
   
-  if (downloadUrl && downloadUrl !== '#') {
-    window.open(downloadUrl, '_blank');
-  } else {
-    alert('Download link မရှိပါ။');
-  }
+  openWithBrowserSelector(downloadUrl);
 });
 
-// Save file id when opening file detail
+// 3. File Card Download
+document.addEventListener('click', function(e) {
+  const downloadBtn = e.target.closest('.file-download');
+  if (!downloadBtn) return;
+  
+  e.preventDefault();
+  e.stopPropagation();
+  
+  const card = downloadBtn.closest('.file-card');
+  const downloadUrl = card?.dataset.fileDownload;
+  
+  openWithBrowserSelector(downloadUrl);
+});
+
+// 4. Save file id when opening file detail
 const originalOpenFileDetail = window.openFileDetail;
 if (originalOpenFileDetail) {
   window.openFileDetail = function(fileCard) {
@@ -6829,24 +6877,6 @@ if (originalOpenFileDetail) {
     originalOpenFileDetail(fileCard);
   };
 }
-
-// 3. File Card Download
-document.addEventListener('click', function(e) {
-  const downloadBtn = e.target.closest('.file-download');
-  if (!downloadBtn) return;
-  
-  e.preventDefault();
-  e.stopPropagation();
-  
-  const card = downloadBtn.closest('.file-card');
-  const downloadUrl = card?.dataset.fileDownload;
-  
-  if (downloadUrl && downloadUrl !== '#') {
-    window.open(downloadUrl, '_blank');
-  } else {
-    alert('Download link မရှိပါ။');
-  }
-});
 
 // Expose functions globally
 window.openFileScreen = openFileScreen;
